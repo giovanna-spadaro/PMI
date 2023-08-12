@@ -9,9 +9,11 @@ public partial class NotePage : ContentPage
 		InitializeComponent();
 
 		if (File.Exists (_fileName))
-			TextEditor.Text = File.ReadAllText (_fileName);
+		{
+            TextEditor.Text = File.ReadAllText(_fileName);
+        }
+			
 	}
-
 
 	private void SaveButton_Clicked(object sender, EventArgs e)
 	{
@@ -21,7 +23,10 @@ public partial class NotePage : ContentPage
 	private void DeleteButton_Clicked(Object sender, EventArgs e) 
 	{
 		//Delete the file.
-		if (File.Exists(_fileName)) 
+		if (File.Exists(_fileName))
+		{
+			File.Delete(_fileName);
+		}
 			File.Delete(_fileName);
 		TextEditor.Text = string.Empty;
 	}
